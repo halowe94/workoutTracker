@@ -34,7 +34,7 @@ module.exports = function(app) {
     });
 
     //get route
-    app. get("api/workouts", (req, res) => {
+    app.get("api/workouts", (req, res) => {
         Workout.find({}).then(workoutDB => {
             res.json(workoutDB);
         })

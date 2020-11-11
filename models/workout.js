@@ -39,6 +39,6 @@ day: {
       ]
 });
 
-const Workout = mongoose.model("Workout", workoutSchema);
+const Workout = mongoose.model("Workout", workout);
 
 module.exports = Workout;
