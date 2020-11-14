@@ -5,7 +5,7 @@ module.exports = function(app) {
     //get route
     app.get("/api/workouts", (req, res) => {
         Workout.find({}).then(workoutDB => {
-            res.json(workoutDB);
+            res.json(dbWorkout);
         })
         .catch(err => {
             res.status(400).json(err);
