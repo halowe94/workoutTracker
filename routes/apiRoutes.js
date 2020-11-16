@@ -1,7 +1,7 @@
-const { json } = require("express");
 const Workout = require("../models/workout");
 
 module.exports = function(app) {
+    
     //get route
     app.get("/api/workouts", (req, res) => {
         Workout.find({}).then(workoutDB => {
@@ -23,7 +23,7 @@ module.exports = function(app) {
     })
 
     //put route
-    app.put("/api/workouts", (req, res) => {
+    app.put("/api/workouts/:id", (req, res) => {
         Workout.findByIdAndUpdate(req.params.id, {$push: {exercises: req.body}})
         .then(workoutDB => {
             res.json(workoutDB);
@@ -34,7 +34,7 @@ module.exports = function(app) {
     });
 
     //get route
-    app.get("api/workouts", (req, res) => {
+    app.get("api/workouts/range", (req, res) => {
         Workout.find({}).then(workoutDB => {
             res.json(workoutDB);
         })

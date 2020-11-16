@@ -13,14 +13,18 @@ app.use(express.json());
 app.use(morgan("dev"));
 
 app.use(express.static("public"));
+app.use(morgan('tiny'));
 
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout", {
   useNewUrlParser: true,
-  useFindAndModify: false
+  useFindAndModify: false,
+  useUnifiedTopology: true
 });
 
 // routes
-app.use(require("./routes/apiRoutes.js"));
+require("./routes/apiRoutes.js")(app);
+require("./routes/htmlRoutes")(app);
+
 
 app.listen(PORT, () => {
   console.log(`App running on port ${PORT}!`);
