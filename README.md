@@ -44,6 +44,9 @@ Pull requests are welcome, but requests are a necessity before you make changes
 ## Tests
 N/A
 
+## Deployed Application
+https://workout-tracker-mongo123.herokuapp.com/
+
 ## Questions
 
 For more info, click here:
